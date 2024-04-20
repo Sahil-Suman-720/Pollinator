@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollinator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .disease-card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .disease-card:hover {
+            transform: translateY(-5px);
+        }
+        .disease-card h2 {
+            margin-top: 0;
+            color: #4caf50;
+        }
+        .disease-card p {
+            margin-top: 10px;
+            color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #666;
+            font-weight: bold;
+        }
+        input[type="date"],
+        input[type="number"] {
+            width: calc(50% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .tooltip {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            z-index: 1;
+            display: none;
+        }
+        .disease-card:hover .tooltip {
+            display: block;
+        }
+        .tooltip:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
+        }
+        .disease-image {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .trademark {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .bg{
+            width: auto;
+            height: auto;
+            background-image: url('WhatsApp\ Image\ 2024-04-17\ at\ 20.31.41_c28eafb4.jpg');
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Pollinator</h1>
+        <form id="pollinator-form" method="post" action="/api/predict">
+            <!-- <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date"> -->
+            <label for="MaxAirTempC">Max Temperature (°C):</label>
+            <input type="number" id="MaxAirTempC" name="MaxAirTempC">
+            <label for="MinAirTempC">Min Temperature (°C):</label>
+            <input type="number" id="MinAirTempC" name="MinAirTempC">
+            <label for="PrecipitationC">Precipitation (mm):</label>
+            <input type="number" id="PrecipitationC" name="PrecipitationC" width="50%">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </header>
+    <% if(locals.prediction){ %>
+        <li>
+            <h3>Tree Pollen: <%=prediction[0]%></h3>
+            <h3>Grass Pollen: <%=prediction[1]%></h3>
+            <h3>Weed Pollen: <%=prediction[2]%></h3>
+        </li>
+    <% } %>
+    <footer>
+        <p class="trademark">&copy; 2024 Pollinator Info</p>
+    </footer>
+</body>
+</html>
