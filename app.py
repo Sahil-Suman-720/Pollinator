@@ -27,7 +27,7 @@ def predict():
     print(data)
     custom_data = {}
     for ele in data:
-        custom_data[ele] = [int(data[ele])]
+        custom_data[ele] = [float(data[ele])]
     print(custom_data)
     custom_scaled = scaler.transform(pd.DataFrame(custom_data))
     custom_predictions = {}
