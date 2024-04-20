@@ -12,9 +12,7 @@ app.use(bodyParser.json());
 // Route to render the main page
 app.get("/", async (req, res) => {
     try {
-      const response = await axios.get(`${API_URL}`);
-      console.log(response);
-      res.render("index.ejs", { posts: response.data });
+      res.render("index.ejs");
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Error fetching posts" });
