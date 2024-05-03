@@ -1,0 +1,1 @@
+This project a about to predict the pollen concentration which is responsible for the seasonal disease.
